@@ -1,0 +1,124 @@
+.container{
+    text-align: center;
+    position: relative;
+    margin: 100px auto;
+    width: 700px;
+}
+.container img{
+    width: 700px;
+    height: 394px;
+}
+
+.title::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    left: 0;
+    height: 0;
+    border: 3px solid ghostwhite;
+    border-width: 0 3px;
+    overflow: hidden;
+    visibility: hidden;
+    transition: all .5s;
+    box-sizing: border-box;
+}
+
+.title::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    left: 50%;
+    height: 100%;
+    border: 3px solid ghostwhite;
+    border-width: 3px 0;
+    overflow: hidden;
+    visibility: hidden;
+    box-sizing: border-box;
+    transition: all .5s;
+}
+
+.title{
+    position: absolute;
+    left: 50px;
+    width: 600px;
+    height: 220px;
+    margin-top: 47px;
+    padding-top: 80px;
+    box-shadow: 0 0 40px 43px rgba(0, 0, 0, .4);
+    visibility: hidden;
+}
+
+.title a {
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    font-size: 20px;
+    animation: changeC 5s infinite linear;
+}
+
+.title h1{
+    color: transparent;
+    background-image: -webkit-linear-gradient(
+        left, 
+        #3A5FCD, 
+        #66ffff 10%,
+        #00ff00 20%,
+        #FFD700 30%,
+        red 40%, 
+        #3A5FCD 50%,
+        #66ffff 60%,
+        #00ff00 70%,
+        #FFD700 80%,
+        red 90%,
+        #3A5FCD
+        );
+    -webkit-background-clip: text;
+    background-size: 200% 100%;
+    animation: streamer 5s infinite linear;
+}
+
+.container:hover .title::before{
+    visibility: visible;
+    height: 100%;
+    top:0;
+}
+
+.container:hover .title::after{
+    visibility: visible;
+    width: 100%;
+    left: 0;
+
+}
+
+.container:hover .title{
+    visibility: visible;
+    z-index: 99;
+    transition: all .5s;
+}
+
+
+.container:hover img{
+    -webkit-filter: blur(1.5px);
+    filter: blur(1.5px);
+    transition: all .5s;
+}
+
+@keyframes streamer {
+    0%  {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+@keyframes changeC {
+    0% {color: #3A5FCD;}
+    20% {color: #66ffff;}
+    40% {color:#00ff00;}
+    60% {color: #FFD700;}
+    80% {color: red;}
+    100% {color: #3A5FCD;}
+}
